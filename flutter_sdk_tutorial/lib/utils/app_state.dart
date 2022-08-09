@@ -8,9 +8,9 @@ import 'package:flutter_sdk_tutorial/utils/pubnub_instance.dart';
 import 'package:platform_device_id/platform_device_id.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../demo/demo_interface.dart';
-
 class AppState {
+  //  ONLY set to true if running in PubNub's interactive demo framework
+  static const bool demo = true;
   static String? _deviceId;
   static final PubNubInstance _pubnub = PubNubInstance();
   static final FriendlyNamesProvider _friendlyNames =
@@ -56,7 +56,7 @@ class AppState {
       const localStorageKey = "com.pubnub.gettingstarted_deviceId";
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? storedId = prefs.getString(localStorageKey);
-      if (storedId == null) {
+      if (storedId == null || AppState.demo) {
         //  No local storage found, generate a new random ID for this user
         String newId = generateRandomString(15);
         await prefs.setString(localStorageKey, newId);

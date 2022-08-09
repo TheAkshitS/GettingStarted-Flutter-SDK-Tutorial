@@ -53,6 +53,10 @@ class MessageProvider with ChangeNotifier {
             channel: m.channel,
             uuid: m.uuid.value,
             message: m.content));
+
+        //  Interactive Demo only
+        DemoInterface.actionCompleted(
+            "Receive a message (You might need to open a new tab)");
       } else if (m.messageType == MessageType.objects) {
         //  Whenever Object meta data is changed, an Object event is received.
         //  See: https://www.pubnub.com/docs/chat/sdks/users/setup
