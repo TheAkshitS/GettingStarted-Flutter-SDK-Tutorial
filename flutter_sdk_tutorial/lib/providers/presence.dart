@@ -17,12 +17,18 @@ class PresenceProvider with ChangeNotifier {
   }
 
   String membersOnline(FriendlyNamesProvider friendlyNames) {
-    //  todo loop through onlineUsers and and resolve friendly names
+    //  loop through onlineUsers and and resolve friendly names
     String members = "";
     _onlineUsers.forEach((element) {
       if (members != "") members += ", ";
       members += friendlyNames.resolveFriendlyName(element);
     });
+
+    //  Interactive Demo only
+    if (_onlineUsers.length >= 3) {
+      DemoInterface.actionCompleted("Be in a chat with 3 or more people");
+    }
+
     return members;
   }
 
@@ -59,12 +65,6 @@ class PresenceProvider with ChangeNotifier {
                 .where((id) => id.value != AppState.deviceId)
                 .map((uuid) => uuid.value));
           }
-
-          //  Interactive Demo only
-          if (_onlineUsers.length >= 3) {
-            DemoInterface.actionCompleted("Be in a chat with 3 or more people");
-          }
-
           notifyListeners();
           break;
         default:
