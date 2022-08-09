@@ -28,7 +28,9 @@ class DemoInterface {
       var uriJson = Uri.encodeComponent(myJson);
 
       String url =
-          "https://ps.pndsn.com/publish/$pub/$sub/0/demo/myCallback/$uriJson))}?store=0&uuid=$identifier";
+          "https://ps.pndsn.com/publish/$pub/$sub/0/demo/myCallback/$uriJson?store=0&uuid=$identifier";
+
+      print(url);
 
       var response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
