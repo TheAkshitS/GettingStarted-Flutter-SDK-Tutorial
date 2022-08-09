@@ -83,8 +83,6 @@ class MessageProvider with ChangeNotifier {
     //await pubnub.publish(channel, {'text': message});
     await pubnub.publish(channel, message);
 
-    //  Interactive Demo only
-    DemoInterface.actionCompleted("Send a message");
   }
 
   @override
