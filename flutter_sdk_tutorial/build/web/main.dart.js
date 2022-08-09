@@ -63838,7 +63838,7 @@ OB(a,b){var s=0,r=A.T(t.z),q=this
 var $async$r9=A.O(function(c,d){if(c===1)return A.Q(d,r)
 while(true)switch(s){case 0:s=2
 return A.U(q.a.qs(a,b),$async$r9)
-case 2:A.q7("Send a Message")
+case 2:A.q7("Send a message")
 return A.R(null,r)}})
 return A.S($async$r9,r)},
 p(a){var s=0,r=A.T(t.z),q=this
