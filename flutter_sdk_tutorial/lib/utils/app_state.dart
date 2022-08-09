@@ -17,9 +17,9 @@ class AppState {
       FriendlyNamesProvider(_pubnub);
 
   static const pubnubPublishKey =
-      "REPLACE WITH YOUR PUBNUB PUBLISH KEY"; //    <--  PubNub Keys go here
+      "pub-c-bf3c35b8-825f-4501-b35d-b5bdd7e9cbe2"; //    <--  PubNub Keys go here
   static const pubnubSubscribeKey =
-      "REPLACE WITH YOUR PUBNUB SUBSCRIBE KEY"; //  <--  PubNub Keys go here
+      "sub-c-ea1fa5f7-0ff7-4422-8552-1866193da6e2"; //  <--  PubNub Keys go here
 
   //  This application hardcodes a single channel name for simplicity.  Typically you would use separate channels for each
   //  type of conversation, e.g. each 1:1 chat would have its own channel, named appropriately.
@@ -77,7 +77,7 @@ class AppState {
       //  This external library will generate a '/sys/firmware/dmi/tables/smbios_entry_point: Permission denied' error
       //  You can get around this by adding your user to the group who owns the file (according to Google)
       //  but for our purposes, I will just assign a hardcoded ID in this case.
-      if (deviceId == null || deviceId == ""){
+      if (deviceId == null || deviceId == "") {
         print("Device ID on Linux was empty, assigning hardcoded ID");
         deviceId = "Linux Machine ID";
       }
